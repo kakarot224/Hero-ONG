@@ -15,7 +15,7 @@ const Support = () => {
     {
       icon: Users,
       title: "Devenir Bénévole",
-      description: "Rejoignez nos équipes sur le terrain et participez directement aux actions de nettoyage et sensibilisation.",
+      description: "Rejoignez notre équipes sur le terrain et participez directement aux actions de nettoyage et de la sensibilisation.",
       actions: ["S'inscrire", "En savoir plus"],
       variant: "default" as const
     },
