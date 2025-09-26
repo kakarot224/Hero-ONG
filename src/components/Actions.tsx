@@ -27,7 +27,7 @@ const Actions = () => {
     {
       icon: Building,
       title: "Partenariats Institutionnels",
-      description: "Collaboration étroite avec les services techniques de la ville et les autorités publiques pour des actions coordonnées.",
+      description: "Collaborer étroitement avec les services techniques de la ville et les autorités publiques pour des actions coordonnées.",
       stats: "15 partenaires institutionnels"
     },
     {
