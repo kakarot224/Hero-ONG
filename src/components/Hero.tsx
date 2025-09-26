@@ -21,7 +21,7 @@ const Hero = () => {
           <div className="mb-6 animate-fadeInUp">
             <span className="inline-flex items-center px-4 py-2 bg-accent/20 text-accent-foreground rounded-full text-sm font-medium">
               <Target className="w-4 h-4 mr-2" />
-              Projet M'won Fintin
+              Projet Won fintin
             </span>
           </div>
           
