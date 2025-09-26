@@ -52,8 +52,8 @@ const Team = () => {
             Notre Équipe
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Une équipe passionnée et expérimentée, unie par la vision de transformer 
-            Conakry en modèle de développement durable pour l'Afrique de l'Ouest.
+            Nous sommes une équipe passionnée et expérimentée, unie par la vision de transformer 
+            Conakry en un modèle de développement durable pour tout l'Afrique de l'Ouest.
           </p>
         </div>
 
