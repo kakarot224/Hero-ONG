@@ -20,7 +20,7 @@ const Actions = () => {
     },
     {
       icon: Users,
-      title: "Mobilisation Jeunesse",
+      title: "Mobilisation de la jeunesse",
       description: "Implication active des jeunes et leaders communautaires comme ambassadeurs du changement dans leurs communautés.",
       stats: "500+ jeunes mobilisés"
     },
