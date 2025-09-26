@@ -53,10 +53,10 @@ const About = () => {
           <div>
             <h3 className="text-2xl font-bold text-foreground mb-6">Notre Mission</h3>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Transformer Conakry en la capitale la plus propre de toute la sous-région ouest-africaine 
-              à travers notre projet emblématique "M'won Fintin". Nous travaillons en partenariat direct 
-              avec les autorités locales et nationales pour apporter des solutions concrètes, durables 
-              et citoyennes aux défis environnementaux.
+              Transformer Conakry en une capitale la plus propre de toute la sous-région ouest-africaine 
+              à travers notre projet emblématique "WON FINTIN". Nous travaillons en partenariat direct 
+              avec les autorités nationales pour apporter des solutions concrètes, durables des 
+              citoyennes aux défis environnementaux.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Notre nom, <strong>Hero National</strong>, symbolise une volonté collective : que chaque citoyen 
