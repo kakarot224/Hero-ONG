@@ -50,7 +50,7 @@ const Support = () => {
             Nous Soutenir
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Votre soutien est essentiel pour réaliser notre vision d'une Conakry propre et durable. 
+            Vos soutien sont essentiel pour réaliser notre vision de faire Conakry en une capitale propre et durable. 
             Découvrez les différentes façons de contribuer à notre mission.
           </p>
         </div>
