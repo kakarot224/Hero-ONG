@@ -66,7 +66,7 @@ const About = () => {
           
           <div className="relative">
             <div className="bg-hero-gradient rounded-2xl p-8 text-white">
-              <h4 className="text-xl font-bold mb-4">Projet M'won Fintin</h4>
+              <h4 className="text-xl font-bold mb-4">Projet Won Fintin</h4>
               <p className="mb-4">
                 "M'won Fintin" est notre initiative phare qui vise à révolutionner 
                 l'assainissement urbain à Conakry à travers :
