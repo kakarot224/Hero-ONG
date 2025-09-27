@@ -91,7 +91,7 @@ const Actions = () => {
         <div className="mt-16 text-center">
           <div className="bg-hero-gradient rounded-2xl p-8 md:p-12 text-white">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Rejoignez le Mouvement M'won Fintin
+              Rejoignez le Mouvement Won Fintin
             </h3>
             <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
               Ensemble, nous pouvons faire de Conakry un exemple de propreté et de développement 
