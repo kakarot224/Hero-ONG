@@ -7,9 +7,9 @@ const Header = () => {
 
   const navigation = [
     { name: "Accueil", href: "#accueil" },
-    { name: "À propos", href: "#apropos" },
-    { name: "Nos Actions", href: "#actions" },
     { name: "Équipe", href: "#equipe" },
+    { name: "Nos Actions", href: "#actions" },
+    { name: "À propos", href: "#apropos" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -18,11 +18,11 @@ const Header = () => {
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center  space-x-3">
             <img 
               src="/lovable-uploads/7414c987-e8d6-497b-878a-d8d47f0e8ba3.png" 
               alt="Hero National Logo" 
-              className="w-12 h-12 object-contain"
+              className="w-12 h-12 object-contain rounded-full"
             />
             <div>
               <div className="font-bold text-lg text-primary">Hero National</div>

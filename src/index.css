@@ -2,105 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Design system Hero National - Basé sur les couleurs du logo */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 15%;
+    --foreground: 220 40% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 15%;
+    --card-foreground: 220 40% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 15%;
+    --popover-foreground: 220 40% 15%;
 
-    /* Hero National Green Theme */
-    --primary: 142 76% 36%;
+    /* Couleurs principales du logo Hero National */
+    /* Rouge bordeaux du cercle */
+    --primary: 355 65% 45%;
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 142 76% 45%;
+    --primary-glow: 355 75% 55%;
 
-    --secondary: 201 96% 32%;
+    /* Bleu marine du cercle */
+    --secondary: 220 50% 20%;
     --secondary-foreground: 0 0% 98%;
 
     --muted: 220 14.3% 95.9%;
     --muted-foreground: 220 8.9% 46.1%;
 
-    --accent: 43 96% 56%;
-    --accent-foreground: 0 0% 15%;
+    /* Or/Doré de l'étoile */
+    --accent: 45 95% 60%;
+    --accent-foreground: 220 40% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 142 76% 36%;
+    --ring: 355 65% 45%;
 
-    /* Custom design tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(142 76% 36%), hsl(201 96% 32%));
-    --accent-gradient: linear-gradient(135deg, hsl(43 96% 56%), hsl(142 76% 45%));
-    --card-shadow: 0 4px 20px -4px hsl(142 76% 36% / 0.15);
-    --hero-shadow: 0 20px 40px -10px hsl(142 76% 36% / 0.3);
+    /* Tokens de design personnalisés Hero National */
+    --hero-gradient: linear-gradient(135deg, hsl(355 65% 45%), hsl(220 50% 20%));
+    --accent-gradient: linear-gradient(135deg, hsl(45 95% 60%), hsl(45 85% 50%));
+    --gold-gradient: linear-gradient(180deg, hsl(45 100% 70%), hsl(40 90% 50%), hsl(35 85% 45%));
+    --card-shadow: 0 4px 20px -4px hsl(355 65% 45% / 0.15);
+    --hero-shadow: 0 20px 40px -10px hsl(355 65% 45% / 0.3);
+    --gold-glow: 0 0 20px hsl(45 95% 60% / 0.5);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --radius: 0.5rem;
 
+    /* Couleurs Hero National additionnelles */
+    --hero-burgundy: 355 65% 45%;
+    --hero-navy: 220 50% 20%;
+    --hero-gold: 45 95% 60%;
+    --hero-gold-dark: 40 90% 50%;
+    --hero-white: 0 0% 98%;
+
     --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
+    --sidebar-foreground: 220 40% 15%;
+    --sidebar-primary: 355 65% 45%;
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
+    --sidebar-accent-foreground: 220 40% 15%;
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 355 65% 45%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 220 50% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 45% 12%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 45% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 355 70% 55%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 45% 25%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 40% 18%;
+    --muted-foreground: 220 15% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 45 95% 65%;
+    --accent-foreground: 220 50% 8%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 220 40% 20%;
+    --input: 220 40% 20%;
+    --ring: 355 70% 55%;
+
+    --sidebar-background: 220 50% 10%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 355 70% 55%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 220 40% 18%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 220 40% 20%;
+    --sidebar-ring: 355 70% 55%;
   }
 }
 
@@ -111,5 +115,40 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Classes utilitaires Hero National */
+@layer utilities {
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+  
+  .gold-gradient {
+    background: var(--gold-gradient);
+  }
+  
+  .text-hero-gold {
+    color: hsl(var(--hero-gold));
+  }
+  
+  .text-hero-burgundy {
+    color: hsl(var(--hero-burgundy));
+  }
+  
+  .text-hero-navy {
+    color: hsl(var(--hero-navy));
+  }
+  
+  .bg-hero-gold {
+    background-color: hsl(var(--hero-gold));
+  }
+  
+  .bg-hero-burgundy {
+    background-color: hsl(var(--hero-burgundy));
+  }
+  
+  .bg-hero-navy {
+    background-color: hsl(var(--hero-navy));
   }
 }

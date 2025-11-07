@@ -9,34 +9,33 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Adresse",
-      details: ["Quartier Kaloum, Conakry", "République de Guinée"],
+      details: ["Quartier ratoma, Conakry", "République de Guinée"],
       color: "text-red-500"
     },
     {
       icon: Phone,
       title: "Téléphone",
-      details: ["+224 622 XX XX XX", "+224 664 XX XX XX"],
+      details: ["+224 622 30 99 09", "+224 623618821"],
       color: "text-green-500"
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["contact@heronational.gn", "info@heronational.gn"],
+      details: ["heronational224@gmail.com", "infoheronational.ong@gmail.com"],
       color: "text-blue-500"
     },
     {
       icon: Clock,
       title: "Horaires",
-      details: ["Lun - Ven: 8h00 - 17h00", "Sam: 8h00 - 12h00"],
+      details: ["lun - ven: 8h30-16h30"],
       color: "text-purple-500"
     }
   ];
 
   const socialMedia = [
-    { icon: Facebook, name: "Facebook", color: "bg-blue-600", url: "#" },
-    { icon: Twitter, name: "Twitter", color: "bg-sky-500", url: "#" },
-    { icon: Instagram, name: "Instagram", color: "bg-pink-500", url: "#" },
-  ];
+    { icon: Facebook, name: "Facebook", color: "bg-blue-600", url: "https://www.facebook.com/share/16EGX97ugH/"}
+      
+    ];
 
   return (
     <section id="contact" className="py-20 bg-muted/30">

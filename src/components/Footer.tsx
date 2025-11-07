@@ -1,4 +1,5 @@
-import { Heart, MapPin, Phone, Mail, Facebook, Twitter, Instagram, Globe } from "lucide-react";
+import { Heart, MapPin, Phone, Mail, Facebook } from "lucide-react";
+import { FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   const quickLinks = [
@@ -16,36 +17,52 @@ const Footer = () => {
     { name: "Nos rapports", href: "#" },
   ];
 
+
   const socialMedia = [
-    { icon: Facebook, url: "#", color: "hover:text-blue-500" },
-    { icon: Twitter, url: "#", color: "hover:text-sky-500" },
-    { icon: Instagram, url: "#", color: "hover:text-pink-500" },
+    {
+      icon: Facebook,
+      url: "https://www.facebook.com/share/16EGX97ugH/",
+      color: "hover:text-blue-500",
+    },
+    {
+      icon: FaTiktok,
+      url: "https://www.tiktok.com/@heronational",
+      color: "hover:text-pink-500",
+    },
   ];
 
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Logo and Description */}
+          {/* Logo et description */}
           <div className="lg:col-span-1">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-                <Heart className="w-6 h-6 text-accent-foreground" />
-              </div>
+            <div className="flex items-center space-x-3">
+              <img
+                src="/lovable-uploads/7414c987-e8d6-497b-878a-d8d47f0e8ba3.png"
+                alt="Hero National Logo"
+                className="w-12 h-12 object-contain rounded-full"
+              />
               <div>
-                <div className="font-bold text-lg">Hero National</div>
-                <div className="text-xs text-primary-foreground/80">ONG Guinée</div>
+                <div className="font-semibold">Hero National</div>
+                <div className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200 text-sm">
+                  ONG Guinée
+                </div>
               </div>
             </div>
-            <p className="text-primary-foreground/80 text-sm leading-relaxed mb-6">
-              Organisation non gouvernementale dédiée à faire de Conakry la capitale 
+            <p className="text-primary-foreground/80 text-sm leading-relaxed mb-6 mt-4">
+              Organisation non gouvernementale dédiée à faire de Conakry la capitale
               la plus propre d'Afrique de l'Ouest à travers le projet M'won Fintin.
             </p>
+
+          
             <div className="flex space-x-4">
               {socialMedia.map((social, index) => (
                 <a
                   key={index}
                   href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center text-primary-foreground/80 ${social.color} transition-colors duration-300`}
                 >
                   <social.icon className="w-4 h-4" />
@@ -54,7 +71,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Navigation */}
           <div>
             <h3 className="font-semibold mb-4">Navigation</h3>
             <ul className="space-y-3">
@@ -71,7 +88,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Support Links */}
+          {/* Nous Soutenir */}
           <div>
             <h3 className="font-semibold mb-4">Nous Soutenir</h3>
             <ul className="space-y-3">
@@ -88,7 +105,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
             <h3 className="font-semibold mb-4">Contact</h3>
             <div className="space-y-3">
@@ -101,34 +118,43 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-primary-foreground/60 flex-shrink-0" />
-                <span className="text-primary-foreground/80 text-sm">+224 622 XX XX XX</span>
+                <span className="text-primary-foreground/80 text-sm">
+                  +224 622 30 99 09
+                </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-primary-foreground/60 flex-shrink-0" />
-                <span className="text-primary-foreground/80 text-sm">contact@heronational.gn</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Globe className="w-4 h-4 text-primary-foreground/60 flex-shrink-0" />
-                <span className="text-primary-foreground/80 text-sm">www.heronational.gn</span>
+                <span className="text-primary-foreground/80 text-sm">
+                  heronational224@gmail.com
+                </span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Section */}
+        {/* Bas du footer */}
         <div className="border-t border-primary-foreground/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-primary-foreground/60 text-sm text-center md:text-left">
               © 2024 Hero National. Tous droits réservés. | ONG enregistrée en République de Guinée
             </div>
             <div className="flex items-center space-x-6 text-sm">
-              <a href="#" className="text-primary-foreground/60 hover:text-primary-foreground transition-colors">
+              <a
+                href="#"
+                className="text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+              >
                 Politique de confidentialité
               </a>
-              <a href="#" className="text-primary-foreground/60 hover:text-primary-foreground transition-colors">
+              <a
+                href="#"
+                className="text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+              >
                 Mentions légales
               </a>
-              <a href="#" className="text-primary-foreground/60 hover:text-primary-foreground transition-colors">
+              <a
+                href="#"
+                className="text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+              >
                 Rapports financiers
               </a>
             </div>

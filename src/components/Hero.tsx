@@ -6,14 +6,17 @@ const Hero = () => {
   return (
     <section id="accueil" className="pt-16 min-h-screen flex items-center relative overflow-hidden">
       {/* Background with overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage} 
-          alt="Volontaires nettoyant les rues de Conakry"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent"></div>
-      </div>
+    <div
+  className="absolute inset-0 z-0 bg-cover bg-center"
+  style={{
+    backgroundImage: `url(${heroImage})`,
+  }}
+>
+  <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent"></div>
+</div>
+
+
+
 
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -32,7 +35,7 @@ const Hero = () => {
           </h1>
           
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl animate-fadeInUp" style={{animationDelay: '0.4s'}}>
-            Hero National mobilise la jeunesse guinéenne pour transformer Conakry en un modèle d'assainissement urbain et de développement communautaire durable.
+            Hero National est engagée dans l'amélioration des conditions de vie en Guinée, avec un accent sur l'assainissement urbain et le développement communautaire.
           </p>
 
           {/* Stats */}

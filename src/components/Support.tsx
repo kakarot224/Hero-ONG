@@ -5,8 +5,8 @@ const Support = () => {
   const supportOptions = [{
     icon: CreditCard,
     title: "Faire un Don",
-    description: "Soutenez nos actions avec un don sécurisé via Orange Money, Wave, MTN MoMo ou virement bancaire.",
-    actions: ["Orange Money", "Wave", "MTN MoMo", "Virement"],
+    description: "Soutenez nos actions avec un don sécurisé via Orange Money, paiement marchand ou virement bancaire.",
+    actions: ["Orange Money", "Virement bancaire"],
     variant: "donate" as const,
     featured: true
   }, {
@@ -27,23 +27,6 @@ const Support = () => {
     description: "Contribuez avec du matériel de nettoyage, équipements ou ressources logistiques pour nos opérations.",
     actions: ["Proposer", "Liste besoins"],
     variant: "outline" as const
-  }];
-  const paymentMethods = [{
-    name: "Orange Money",
-    code: "*144*1#",
-    color: "bg-orange-500"
-  }, {
-    name: "Wave",
-    code: "#144#",
-    color: "bg-blue-500"
-  }, {
-    name: "MTN MoMo",
-    code: "*155#",
-    color: "bg-yellow-500"
-  }, {
-    name: "Moov Money",
-    code: "*555#",
-    color: "bg-green-500"
   }];
   return <section id="soutenir" className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,27 +67,6 @@ const Support = () => {
             </Card>)}
         </div>
 
-        {/* Payment Methods */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-foreground text-center mb-8">
-            Méthodes de Paiement Mobile
-          </h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {paymentMethods.map((method, index) => <Card key={index} className="text-center hover:shadow-card transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
-                  <div className={`w-16 h-16 ${method.color} rounded-full mx-auto mb-4 flex items-center justify-center`}>
-                    <Phone className="w-8 h-8 text-white" />
-                  </div>
-                  <h4 className="font-semibold mb-2">{method.name}</h4>
-                  <p className="text-muted-foreground text-sm mb-3">Composez :</p>
-                  <code className="bg-muted px-3 py-1 rounded text-sm font-mono">
-                    {method.code}
-                  </code>
-                </CardContent>
-              </Card>)}
-          </div>
-        </div>
-
         {/* Impact Statement */}
         <div className="bg-hero-gradient rounded-2xl p-8 md:p-12 text-white text-center">
           <Heart className="w-16 h-16 mx-auto mb-6 text-accent" />
@@ -113,15 +75,15 @@ const Support = () => {
           </h3>
           <div className="grid sm:grid-cols-3 gap-8 mb-8">
             <div>
-              <div className="text-3xl font-bold text-accent">25€</div>
+              <div className="text-3xl font-bold text-accent">25 000 GNF</div>
               <div className="text-white/90">Nettoie 1 rue</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-accent">50€</div>
+              <div className="text-3xl font-bold text-accent">50 000 GNF</div>
               <div className="text-white/90">Forme 5 jeunes</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-accent">100€</div>
+              <div className="text-3xl font-bold text-accent">100 000 GNF</div>
               <div className="text-white/90">Équipe 1 équipe</div>
             </div>
           </div>
