@@ -9,6 +9,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MapPin, Phone, Mail, Facebook, Clock, Send, Users, Handshake } from "lucide-react";
 import { toast } from "sonner";
+import { useState } from "react";
+import InscriptionModal from "@/components/modals/InscriptionModal";
+import PartenariatModal from "@/components/modals/PartenariatModal";
 
 const contactSchema = z.object({
   prenom: z.string().min(2, "Le prénom doit contenir au moins 2 caractères"),
@@ -22,6 +25,9 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const Contact = () => {
+  const [inscriptionOpen, setInscriptionOpen] = useState(false);
+  const [partenariatOpen, setPartenariatOpen] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -84,6 +90,8 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-muted/30">
+      <InscriptionModal open={inscriptionOpen} onClose={() => setInscriptionOpen(false)} />
+      <PartenariatModal open={partenariatOpen} onClose={() => setPartenariatOpen(false)} />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -145,13 +153,23 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Map Placeholder */}
+            {/* Google Maps */}
             <div className="mt-8">
-              <div className="bg-muted rounded-lg h-64 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="w-12 h-12 text-muted-foreground mx-auto mb-2" />
-                  <p className="text-muted-foreground">Carte interactive bientôt disponible</p>
-                </div>
+              <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-red-500" />
+                Quartier Kaloum, Conakry
+              </h4>
+              <div className="rounded-xl overflow-hidden border border-border shadow-sm h-64">
+                <iframe
+                  src="https://maps.google.com/maps?q=Kaloum,+Conakry,+Guin%C3%A9e&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Localisation Hero National — Kaloum, Conakry"
+                />
               </div>
             </div>
           </div>
@@ -270,9 +288,7 @@ const Contact = () => {
               <Button
                 variant="outline"
                 className="h-auto p-4 flex-col"
-                onClick={() => {
-                  window.location.href = "mailto:heronational224@gmail.com?subject=Candidature%20bénévole";
-                }}
+                onClick={() => setInscriptionOpen(true)}
               >
                 <Users className="w-6 h-6 mb-2 text-primary" />
                 <span className="font-medium">Devenir Bénévole</span>
@@ -281,9 +297,7 @@ const Contact = () => {
               <Button
                 variant="outline"
                 className="h-auto p-4 flex-col"
-                onClick={() => {
-                  window.location.href = "mailto:heronational224@gmail.com?subject=Proposition%20de%20partenariat";
-                }}
+                onClick={() => setPartenariatOpen(true)}
               >
                 <Handshake className="w-6 h-6 mb-2 text-primary" />
                 <span className="font-medium">Partenariat</span>

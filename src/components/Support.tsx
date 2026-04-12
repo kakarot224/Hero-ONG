@@ -1,30 +1,32 @@
 "use client";
 
+import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Heart, Users, Handshake, CreditCard, Gift } from "lucide-react";
-
-const scrollToContact = () => {
-  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-};
+import OrangeMoneyModal from "@/components/modals/OrangeMoneyModal";
+import InscriptionModal from "@/components/modals/InscriptionModal";
+import ProposerModal from "@/components/modals/ProposerModal";
+import BesoinsModal from "@/components/modals/BesoinsModal";
+import PartenariatModal from "@/components/modals/PartenariatModal";
 
 const Support = () => {
+  const [orangeMoneyOpen, setOrangeMoneyOpen] = useState(false);
+  const [inscriptionOpen, setInscriptionOpen] = useState(false);
+  const [proposerOpen, setProposerOpen] = useState(false);
+  const [besoinsOpen, setBesoinsOpen] = useState(false);
+  const [partenariatOpen, setPartenariatOpen] = useState(false);
+
   const supportOptions = [
     {
       icon: CreditCard,
       title: "Faire un Don",
       description:
-        "Soutenez nos actions avec un don sécurisé via Orange Money, paiement marchand ou virement bancaire.",
+        "Soutenez nos actions avec un don sécurisé via Orange Money ou paiement marchand.",
       actions: [
         {
           label: "Orange Money",
-          onClick: () => {
-            window.location.href = "tel:+224622309909";
-          },
-        },
-        {
-          label: "Virement bancaire",
-          onClick: scrollToContact,
+          onClick: () => setOrangeMoneyOpen(true),
         },
       ],
       variant: "donate" as const,
@@ -38,10 +40,7 @@ const Support = () => {
       actions: [
         {
           label: "S'inscrire",
-          onClick: () => {
-            window.location.href =
-              "mailto:heronational224@gmail.com?subject=Inscription%20bénévole";
-          },
+          onClick: () => setInscriptionOpen(true),
         },
         {
           label: "En savoir plus",
@@ -59,14 +58,12 @@ const Support = () => {
       actions: [
         {
           label: "Devenir partenaire",
-          onClick: () => {
-            window.location.href =
-              "mailto:heronational224@gmail.com?subject=Proposition%20de%20partenariat";
-          },
+          onClick: () => setPartenariatOpen(true),
         },
         {
           label: "Contact",
-          onClick: scrollToContact,
+          onClick: () =>
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }),
         },
       ],
       variant: "secondary" as const,
@@ -79,14 +76,11 @@ const Support = () => {
       actions: [
         {
           label: "Proposer",
-          onClick: () => {
-            window.location.href =
-              "mailto:heronational224@gmail.com?subject=Don%20matériel%20-%20Proposition";
-          },
+          onClick: () => setProposerOpen(true),
         },
         {
           label: "Liste des besoins",
-          onClick: scrollToContact,
+          onClick: () => setBesoinsOpen(true),
         },
       ],
       variant: "outline" as const,
@@ -95,6 +89,17 @@ const Support = () => {
 
   return (
     <section id="soutenir" className="py-20">
+      {/* Modaux */}
+      <OrangeMoneyModal open={orangeMoneyOpen} onClose={() => setOrangeMoneyOpen(false)} />
+      <InscriptionModal open={inscriptionOpen} onClose={() => setInscriptionOpen(false)} />
+      <ProposerModal open={proposerOpen} onClose={() => setProposerOpen(false)} />
+      <BesoinsModal
+        open={besoinsOpen}
+        onClose={() => setBesoinsOpen(false)}
+        onProposer={() => setProposerOpen(true)}
+      />
+      <PartenariatModal open={partenariatOpen} onClose={() => setPartenariatOpen(false)} />
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -174,16 +179,14 @@ const Support = () => {
             </div>
           </div>
           <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-            Chaque contribution, qu'elle soit petite ou grande, nous rapproche de notre objectif :
+            Chaque contribution, petite ou grande, nous rapproche de notre objectif :
             faire de Conakry l'une des capitales les plus propres de toute l'Afrique de l'Ouest.
           </p>
           <Button
             variant="secondary"
             size="lg"
             className="font-semibold"
-            onClick={() => {
-              window.location.href = "tel:+224622309909";
-            }}
+            onClick={() => setOrangeMoneyOpen(true)}
           >
             <Heart className="w-5 h-5 mr-2" />
             Faire un don maintenant

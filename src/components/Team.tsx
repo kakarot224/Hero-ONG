@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import OpportunitesModal from "@/components/modals/OpportunitesModal";
+import CandidatureModal from "@/components/modals/CandidatureModal";
 import type { StaticImageData } from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -39,6 +41,8 @@ interface ActiveMember {
 
 const Team = () => {
   const [showActiveMembers, setShowActiveMembers] = useState(false);
+  const [opportunitesOpen, setOpportunitesOpen] = useState(false);
+  const [candidatureOpen, setCandidatureOpen] = useState(false);
 
   const activeMembers: ActiveMember[] = [
     { name: "Ibrahima Sory Camara", image: ibrahima },
@@ -107,6 +111,15 @@ const Team = () => {
 
   return (
     <section id="equipe" className="py-20 bg-muted/30">
+      <OpportunitesModal
+        open={opportunitesOpen}
+        onClose={() => setOpportunitesOpen(false)}
+        onCandidature={() => setCandidatureOpen(true)}
+      />
+      <CandidatureModal
+        open={candidatureOpen}
+        onClose={() => setCandidatureOpen(false)}
+      />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section titre */}
         <div className="text-center mb-16">
@@ -237,19 +250,12 @@ const Team = () => {
                 et amplifier notre impact sur le terrain.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  onClick={() =>
-                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-                  }
-                >
+                <Button onClick={() => setOpportunitesOpen(true)}>
                   Voir les opportunités
                 </Button>
                 <Button
                   variant="outline"
-                  onClick={() => {
-                    window.location.href =
-                      "mailto:heronational224@gmail.com?subject=Candidature%20spontanée%20Hero%20National";
-                  }}
+                  onClick={() => setCandidatureOpen(true)}
                 >
                   Candidature spontanée
                 </Button>
