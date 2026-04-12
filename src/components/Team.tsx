@@ -1,9 +1,13 @@
+"use client";
+
 import { useState } from "react";
+import Image from "next/image";
+import type { StaticImageData } from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Mail, Phone, ChevronDown, ChevronUp } from "lucide-react";
 import monequipe from "@/assets/4.jpg";
-
 
 import doussou from "@/assets/Doussou Sylla.jpg";
 import robert from "@/assets/Robert Bangoura.jpg";
@@ -18,23 +22,38 @@ import moussa from "@/assets/gogeta.jpg";
 import sounkamba from "@/assets/luffy.webp";
 import mariama from "@/assets/mini gokou.jpg";
 
+interface TeamMember {
+  name: string;
+  role: string;
+  description: string;
+  expertise: string[];
+  email: string;
+  phone: string;
+  image: StaticImageData;
+}
+
+interface ActiveMember {
+  name: string;
+  image: StaticImageData;
+}
+
 const Team = () => {
   const [showActiveMembers, setShowActiveMembers] = useState(false);
 
-  const activeMembers = [
+  const activeMembers: ActiveMember[] = [
     { name: "Ibrahima Sory Camara", image: ibrahima },
     { name: "Moussa Sidibé", image: moussa },
     { name: "Sounkamba Condé", image: sounkamba },
     { name: "Mariama Diallo", image: mariama },
   ];
 
-  const teamMembers = [
+  const teamMembers: TeamMember[] = [
     {
       name: "Doussou Sylla",
       role: "Présidente",
       description: "Leader expérimentée en développement communautaire.",
       expertise: ["Leadership", "Environnement"],
-      email: "fabourama24@gmail.com ",
+      email: "fabourama24@gmail.com",
       phone: "+224623618821",
       image: doussou,
     },
@@ -59,8 +78,8 @@ const Team = () => {
     {
       name: "Fatoumata Kallo",
       role: "Trésorière",
-      description: "Spécialiste en assainissement urbain.",
-      expertise: ["Projets", "Jeunesse"],
+      description: "Spécialiste en gestion financière associative.",
+      expertise: ["Finance", "Gestion"],
       email: "fatoumata.kallo@example.com",
       phone: "+224621000004",
       image: fatoumata,
@@ -68,8 +87,8 @@ const Team = () => {
     {
       name: "Lanssana Sylla",
       role: "Commissaire des comptes",
-      description: "Spécialiste en assainissement urbain.",
-      expertise: ["Projets", "Jeunesse"],
+      description: "Spécialiste en audit et contrôle financier.",
+      expertise: ["Audit", "Comptabilité"],
       email: "lanssana.sylla@example.com",
       phone: "+224621000005",
       image: lanssana,
@@ -79,7 +98,7 @@ const Team = () => {
       role: "Chargé aux Réseaux sociaux",
       description:
         "Stratège digital derrière Héros National. Chargé des réseaux sociaux, il veille à ce que chaque message du mouvement soit entendu, partagé et compris.",
-      expertise: ["Réseaux sociaux", "Jeunesse"],
+      expertise: ["Réseaux sociaux", "Communication"],
       email: "benetibusiness@gmail.com",
       phone: "+224612170040",
       image: michel,
@@ -96,19 +115,20 @@ const Team = () => {
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Nous sommes une équipe passionnée et expérimentée, unie par la vision de transformer
-            Conakry en un modèle de développement durable pour toute l’Afrique de l’Ouest.
+            Conakry en un modèle de développement durable pour toute l'Afrique de l'Ouest.
           </p>
         </div>
 
         {/* Image principale */}
         <div className="mb-16">
-          <div className="relative rounded-2xl overflow-hidden group">
-            <img
+          <div className="relative rounded-2xl overflow-hidden group h-64 md:h-80">
+            <Image
               src={monequipe}
               alt="Équipe Hero National"
-              className="w-full h-64 md:h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
               <h3 className="text-2xl font-bold mb-2">Équipe Hero National</h3>
               <p className="text-white/90">
@@ -127,23 +147,14 @@ const Team = () => {
             >
               <CardContent className="p-6">
                 <div className="text-center mb-4">
-                  {member.image ? (
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-20 h-20 rounded-full mx-auto mb-4 object-cover border-2 border-primary/20 shadow-sm"
-                    />
-                  ) : (
-                    <div className="w-20 h-20 bg-hero-gradient rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
-                      {member.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </div>
-                  )}
-                  <h3 className="text-xl font-bold text-foreground">
-                    {member.name}
-                  </h3>
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={80}
+                    height={80}
+                    className="rounded-full mx-auto mb-4 object-cover border-2 border-primary/20 shadow-sm"
+                  />
+                  <h3 className="text-xl font-bold text-foreground">{member.name}</h3>
                   <p className="text-primary font-medium">{member.role}</p>
                 </div>
 
@@ -153,11 +164,7 @@ const Team = () => {
 
                 <div className="flex flex-wrap justify-center gap-2 mb-6">
                   {member.expertise.map((skill, skillIndex) => (
-                    <Badge
-                      key={skillIndex}
-                      variant="secondary"
-                      className="text-xs"
-                    >
+                    <Badge key={skillIndex} variant="secondary" className="text-xs">
                       {skill}
                     </Badge>
                   ))}
@@ -171,7 +178,6 @@ const Team = () => {
                   >
                     <Mail className="w-4 h-4 text-primary group-hover/icon:scale-110 transition-transform" />
                   </a>
-
                   <a
                     href={`tel:${member.phone}`}
                     className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary/20 transition-colors group/icon"
@@ -187,9 +193,9 @@ const Team = () => {
 
         {/* Bouton Membres Actifs */}
         <div className="mt-16 text-center">
-          <button
+          <Button
             onClick={() => setShowActiveMembers(!showActiveMembers)}
-            className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium flex items-center mx-auto gap-2"
+            className="flex items-center mx-auto gap-2"
           >
             Membres Actifs
             {showActiveMembers ? (
@@ -197,24 +203,21 @@ const Team = () => {
             ) : (
               <ChevronDown className="w-4 h-4" />
             )}
-          </button>
+          </Button>
 
           {showActiveMembers && (
             <div className="mt-6 bg-accent/5 border border-accent/20 rounded-xl shadow-sm max-w-2xl mx-auto p-6 animate-fadeIn">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
                 {activeMembers.map((member, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center text-center"
-                  >
-                    <img
+                  <div key={index} className="flex flex-col items-center text-center">
+                    <Image
                       src={member.image}
                       alt={member.name}
-                      className="w-20 h-20 rounded-full object-cover border border-border mb-2"
+                      width={80}
+                      height={80}
+                      className="rounded-full object-cover border border-border mb-2"
                     />
-                    <p className="text-sm text-foreground font-medium">
-                      {member.name}
-                    </p>
+                    <p className="text-sm text-foreground font-medium">{member.name}</p>
                   </div>
                 ))}
               </div>
@@ -234,12 +237,22 @@ const Team = () => {
                 et amplifier notre impact sur le terrain.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium">
+                <Button
+                  onClick={() =>
+                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                  }
+                >
                   Voir les opportunités
-                </button>
-                <button className="px-6 py-3 border border-border rounded-lg hover:bg-muted transition-colors font-medium">
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    window.location.href =
+                      "mailto:heronational224@gmail.com?subject=Candidature%20spontanée%20Hero%20National";
+                  }}
+                >
                   Candidature spontanée
-                </button>
+                </Button>
               </div>
             </CardContent>
           </Card>

@@ -1,6 +1,10 @@
+"use client";
+
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, Users, Globe } from "lucide-react";
+import { Menu, X, Heart, Globe } from "lucide-react";
 import { useState } from "react";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,10 +23,12 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center  space-x-3">
-            <img 
-              src="/lovable-uploads/7414c987-e8d6-497b-878a-d8d47f0e8ba3.png" 
-              alt="Hero National Logo" 
-              className="w-12 h-12 object-contain rounded-full"
+            <Image
+              src={logo}
+              alt="Hero National Logo"
+              width={48}
+              height={48}
+              className="object-contain rounded-full"
             />
             <div>
               <div className="font-bold text-lg text-primary">Hero National</div>
@@ -51,7 +57,13 @@ const Header = () => {
               <Globe className="w-4 h-4 mr-2" />
               FR
             </Button>
-            <Button variant="donate" size="sm">
+            <Button
+              variant="donate"
+              size="sm"
+              onClick={() =>
+                document.getElementById("soutenir")?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
               <Heart className="w-4 h-4 mr-2" />
               Faire un don
             </Button>

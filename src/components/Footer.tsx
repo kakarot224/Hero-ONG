@@ -1,5 +1,7 @@
-import { Heart, MapPin, Phone, Mail, Facebook } from "lucide-react";
+import Image from "next/image";
+import { MapPin, Phone, Mail, Facebook } from "lucide-react";
 import { FaTiktok } from "react-icons/fa";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const quickLinks = [
@@ -38,10 +40,12 @@ const Footer = () => {
           {/* Logo et description */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3">
-              <img
-                src="/lovable-uploads/7414c987-e8d6-497b-878a-d8d47f0e8ba3.png"
+              <Image
+                src={logo}
                 alt="Hero National Logo"
-                className="w-12 h-12 object-contain rounded-full"
+                width={48}
+                height={48}
+                className="object-contain rounded-full"
               />
               <div>
                 <div className="font-semibold">Hero National</div>

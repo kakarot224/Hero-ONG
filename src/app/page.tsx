@@ -1,27 +1,21 @@
-import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Actions from "@/components/Actions";
 import Team from "@/components/Team";
+import HomePage from "@/components/HomePage";
 import Support from "@/components/Support";
 import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import HomePage from "@/components/HomePage";
 
-const Index = () => {
+export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <main className="min-h-screen bg-background">
       <Hero />
       <About />
       <Actions />
       <Team />
-      <HomePage/>
+      <HomePage />
       <Support />
       <Contact />
-      <Footer />
-    </div>
+    </main>
   );
-};
-
-export default Index;
+}

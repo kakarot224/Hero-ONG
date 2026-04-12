@@ -1,41 +1,53 @@
+"use client";
+
+import Image from "next/image";
+import type { StaticImageData } from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Recycle, GraduationCap, Users, Building, Lightbulb, ArrowRight } from "lucide-react";
 import environmentIcon from "@/assets/environment-icon.jpg";
 
+interface Action {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  stats: string;
+  image?: StaticImageData;
+}
+
 const Actions = () => {
-  const actions = [
+  const actions: Action[] = [
     {
       icon: Recycle,
       title: "Nettoyage des Quartiers",
       description: "Organisation de campagnes de nettoyage et d'entretien dans tous les quartiers de Conakry avec la participation active des résidents.",
       image: environmentIcon,
-      stats: "25 quartiers ciblés"
+      stats: "25 quartiers ciblés",
     },
     {
       icon: GraduationCap,
       title: "Éducation à la Propreté",
       description: "Sensibilisation dans les écoles, marchés et familles sur l'importance de l'hygiène et de la propreté pour la santé publique.",
-      stats: "50+ écoles sensibilisées"
+      stats: "50+ écoles sensibilisées",
     },
     {
       icon: Users,
       title: "Mobilisation de la jeunesse",
       description: "Implication active des jeunes et leaders communautaires comme ambassadeurs du changement dans leurs communautés.",
-      stats: "500+ jeunes mobilisés"
+      stats: "500+ jeunes mobilisés",
     },
     {
       icon: Building,
       title: "Partenariats Institutionnels",
       description: "Collaborer étroitement avec les services techniques de la ville et les autorités publiques pour des actions coordonnées.",
-      stats: "15 partenaires institutionnels"
+      stats: "15 partenaires institutionnels",
     },
     {
       icon: Lightbulb,
       title: "Initiatives Pilotes",
       description: "Mise en place d'initiatives innovantes dans chaque commune pour servir de modèles reproductibles.",
-      stats: "5 communes couvertes"
-    }
+      stats: "5 communes couvertes",
+    },
   ];
 
   return (
@@ -67,18 +79,23 @@ const Actions = () => {
               </CardHeader>
               <CardContent className="pt-0">
                 {action.image && (
-                  <div className="mb-4 overflow-hidden rounded-lg">
-                    <img 
-                      src={action.image} 
+                  <div className="mb-4 overflow-hidden rounded-lg relative h-32">
+                    <Image
+                      src={action.image}
                       alt={action.title}
-                      className="w-full h-32 object-cover group-hover:scale-105 transition-transform duration-300"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                 )}
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   {action.description}
                 </p>
-                <Button variant="ghost" className="group/btn p-0 h-auto text-primary hover:text-primary-glow">
+                <Button
+                  variant="ghost"
+                  className="group/btn p-0 h-auto text-primary hover:text-primary-glow"
+                  onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+                >
                   En savoir plus
                   <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                 </Button>
@@ -98,11 +115,22 @@ const Actions = () => {
               durable pour toute l'Afrique de l'Ouest. Votre contribution compte !
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg">
+              <Button
+                variant="secondary"
+                size="lg"
+                onClick={() => {
+                  window.location.href = "mailto:heronational224@gmail.com?subject=Inscription%20bénévole";
+                }}
+              >
                 <Users className="w-5 h-5 mr-2" />
                 Devenir bénévole
               </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
+              <Button
+                variant="outline"
+                size="lg"
+                className="bg-white/10 border-white/30 text-white hover:bg-white/20"
+                onClick={() => document.getElementById("soutenir")?.scrollIntoView({ behavior: "smooth" })}
+              >
                 Faire un don
               </Button>
             </div>

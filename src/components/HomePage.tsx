@@ -1,48 +1,55 @@
-import React, { useState, useEffect } from 'react';
+"use client";
+
+import { useState, useEffect, useCallback } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+const slides = [
+  {
+    avatar: "FD",
+    name: "Fatoumata Diallo",
+    quote:
+      '"Grâce à Hero National, notre quartier est plus propre et nous sommes fiers de participer !"',
+    role: "Volontaire, Kaloum",
+  },
+  {
+    avatar: "MS",
+    name: "Mamadou Sylla",
+    quote: '"Les sessions d\'éducation ont changé ma vision de l\'assainissement."',
+    role: "Bénéficiaire, Matam",
+  },
+  {
+    avatar: "MS",
+    name: "Mariam Sylla",
+    quote: '"Travailler avec Hero National m\'a donné un sens d\'appartenance."',
+    role: "Jeune mobilisée, Ratoma",
+  },
+];
 
 const HomePage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const slides = [
-    {
-      avatar: 'FD',
-      name: 'Fatoumata Diallo',
-      quote: '"Grâce à Hero National, notre quartier est plus propre et nous sommes fiers de participer !"',
-      role: 'Volontaire, Kaloum',
-    },
-    {
-      avatar: 'K',
-      name: 'Kakarot',
-      quote: '"Les sessions d\'éducation ont changé ma vision de l\'assainissement."',
-      role: 'Bénéficiaire, Matam',
-    },
-    {
-      avatar: 'MS',
-      name: 'Mariam Sylla',
-      quote: '"Travailler avec Hero National m\'a donné un sens d\'appartenance."',
-      role: 'Jeune mobilisée, Ratoma',
-    },
-  ];
+
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  }, []);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
 
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
-
-  // Optionnel : Auto-slide toutes les 5 secondes
   useEffect(() => {
     const interval = setInterval(handleNext, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [handleNext]);
 
   return (
-    <div className="py-20 bg-muted animate-fade relative z-20" id="temoinages">
+    <div className="py-20 bg-muted relative z-20" id="temoinages">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-primary mb-4">Nos Témoignages</h2>
-        <p className="text-lg text-muted-foreground">Découvrez ce que nos volontaires et bénéficiaires disent de notre mission.</p>
+        <p className="text-lg text-muted-foreground">
+          Découvrez ce que nos volontaires et bénéficiaires disent de notre mission.
+        </p>
       </div>
+
       <div className="relative overflow-hidden w-full my-10 h-[300px] flex justify-center items-center">
         <div
           className="flex transition-transform duration-500 ease-in-out w-full"
@@ -62,17 +69,20 @@ const HomePage = () => {
           ))}
         </div>
       </div>
+
       <button
         onClick={handlePrev}
-        className="absolute left-2.5 top-1/2 -translate-y-1/2 bg-destructive text-destructive-foreground p-2.5 cursor-pointer rounded-full transition duration-300 ease-in-out z-30 w-10 h-10 hover:bg-destructive/80 hover:scale-110"
+        aria-label="Témoignage précédent"
+        className="absolute left-2.5 top-1/2 -translate-y-1/2 bg-destructive text-destructive-foreground p-2.5 cursor-pointer rounded-full transition duration-300 ease-in-out z-30 w-10 h-10 flex items-center justify-center hover:bg-destructive/80 hover:scale-110"
       >
-        ❮
+        <ChevronLeft className="w-5 h-5" />
       </button>
       <button
         onClick={handleNext}
-        className="absolute right-2.5 top-1/2 -translate-y-1/2 bg-destructive text-destructive-foreground p-2.5 cursor-pointer rounded-full transition duration-300 ease-in-out z-30 w-10 h-10 hover:bg-destructive/80 hover:scale-110"
+        aria-label="Témoignage suivant"
+        className="absolute right-2.5 top-1/2 -translate-y-1/2 bg-destructive text-destructive-foreground p-2.5 cursor-pointer rounded-full transition duration-300 ease-in-out z-30 w-10 h-10 flex items-center justify-center hover:bg-destructive/80 hover:scale-110"
       >
-        ❯
+        <ChevronRight className="w-5 h-5" />
       </button>
     </div>
   );

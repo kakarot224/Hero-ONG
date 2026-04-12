@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Users, Target, Globe } from "lucide-react";
 import heroImage from "@/assets/hero-cleaning.jpg";
@@ -6,17 +8,12 @@ const Hero = () => {
   return (
     <section id="accueil" className="pt-16 min-h-screen flex items-center relative overflow-hidden">
       {/* Background with overlay */}
-    <div
-  className="absolute inset-0 z-0 bg-cover bg-center"
-  style={{
-    backgroundImage: `url(${heroImage})`,
-  }}
->
-  <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent"></div>
-</div>
-
-
-
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${heroImage.src})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent"></div>
+      </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -27,19 +24,31 @@ const Hero = () => {
               Projet Won fintin
             </span>
           </div>
-          
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fadeInUp" style={{animationDelay: '0.2s'}}>
-            Faire de Conakry la 
-            <span className="bg-accent-gradient bg-clip-text text-transparent"> capitale la plus propre</span> 
-            {" "}d'Afrique de l'Ouest
+
+          <h1
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-fadeInUp"
+            style={{ animationDelay: "0.2s" }}
+          >
+            Faire de Conakry la
+            <span className="bg-accent-gradient bg-clip-text text-transparent">
+              {" "}capitale la plus propre
+            </span>{" "}
+            d'Afrique de l'Ouest
           </h1>
-          
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl animate-fadeInUp" style={{animationDelay: '0.4s'}}>
-            Hero National est engagée dans l'amélioration des conditions de vie en Guinée, avec un accent sur l'assainissement urbain et le développement communautaire.
+
+          <p
+            className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl animate-fadeInUp"
+            style={{ animationDelay: "0.4s" }}
+          >
+            Hero National est engagée dans l'amélioration des conditions de vie en Guinée, avec un
+            accent sur l'assainissement urbain et le développement communautaire.
           </p>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-4 md:gap-8 mb-8 animate-fadeInUp" style={{animationDelay: '0.6s'}}>
+          <div
+            className="grid grid-cols-3 gap-4 md:gap-8 mb-8 animate-fadeInUp"
+            style={{ animationDelay: "0.6s" }}
+          >
             <div className="text-center">
               <div className="text-2xl md:text-3xl font-bold text-white">500+</div>
               <div className="text-sm text-white/80">Volontaires</div>
@@ -53,15 +62,31 @@ const Hero = () => {
               <div className="text-sm text-white/80">Partenaires</div>
             </div>
           </div>
-          
+
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 animate-fadeInUp" style={{animationDelay: '0.8s'}}>
-            <Button variant="hero" size="lg">
+          <div
+            className="flex flex-col sm:flex-row gap-4 animate-fadeInUp"
+            style={{ animationDelay: "0.8s" }}
+          >
+            <Button
+              variant="hero"
+              size="lg"
+              onClick={() =>
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
               <Users className="w-5 h-5 mr-2" />
               Rejoindre le mouvement
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-            <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
+            <Button
+              variant="outline"
+              size="lg"
+              className="bg-white/10 border-white/30 text-white hover:bg-white/20"
+              onClick={() =>
+                document.getElementById("actions")?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
               <Play className="w-5 h-5 mr-2" />
               Découvrir nos actions
             </Button>
@@ -73,7 +98,10 @@ const Hero = () => {
       <div className="absolute top-1/4 right-10 opacity-20 animate-float">
         <Globe className="w-16 h-16 text-white" />
       </div>
-      <div className="absolute bottom-1/4 right-1/4 opacity-20 animate-float" style={{animationDelay: '2s'}}>
+      <div
+        className="absolute bottom-1/4 right-1/4 opacity-20 animate-float"
+        style={{ animationDelay: "2s" }}
+      >
         <Users className="w-12 h-12 text-white" />
       </div>
     </section>

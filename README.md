@@ -1,73 +1,69 @@
-# Welcome to your Lovable project
+# Hero National - ONG Guinée
 
-## Project info
+Site web de l'ONG Hero National, projet M'won Fintin — pour faire de Conakry la capitale la plus propre d'Afrique de l'Ouest.
 
-**URL**: https://lovable.dev/projects/54ae43ee-0cff-496e-b92e-2cec8522b7ae
+## Stack technique
 
-## How can I edit this code?
+- **Vite** + **React 18** + **TypeScript**
+- **Tailwind CSS** + **shadcn/ui**
+- **React Router** + **React Hook Form** + **Zod**
 
-There are several ways of editing your application.
+## Démarrage rapide
 
-**Use Lovable**
+### Prérequis
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/54ae43ee-0cff-496e-b92e-2cec8522b7ae) and start prompting.
+- [Node.js](https://nodejs.org/) (v18+)
+- [pnpm](https://pnpm.io/installation) (`npm install -g pnpm`)
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Cloner le dépôt
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Naviguer dans le dossier
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Installer les dépendances
+pnpm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# Lancer le serveur de développement
+pnpm dev
 ```
 
-**Edit a file directly in GitHub**
+### Scripts disponibles
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+| Commande | Description |
+|----------|-------------|
+| `pnpm dev` | Serveur de développement (port 6060) |
+| `pnpm build` | Build de production |
+| `pnpm preview` | Prévisualiser le build de production |
+| `pnpm lint` | Linter ESLint |
 
-**Use GitHub Codespaces**
+## Structure du projet
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+src/
+├── assets/          # Images et ressources statiques
+├── components/
+│   ├── ui/          # Composants shadcn/ui
+│   ├── Header.tsx
+│   ├── Hero.tsx
+│   ├── About.tsx
+│   ├── Actions.tsx
+│   ├── Team.tsx
+│   ├── HomePage.tsx  # Témoignages
+│   ├── Support.tsx
+│   ├── Contact.tsx
+│   └── Footer.tsx
+├── pages/
+│   ├── Index.tsx    # Page principale (one-page)
+│   └── NotFound.tsx
+├── hooks/
+├── lib/
+└── index.css        # Design system Hero National
+```
 
-## What technologies are used for this project?
+## Déploiement
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/54ae43ee-0cff-496e-b92e-2cec8522b7ae) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Ouvrir [Lovable](https://lovable.dev/projects/54ae43ee-0cff-496e-b92e-2cec8522b7ae) et cliquer sur **Share → Publish**.

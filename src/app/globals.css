@@ -16,19 +16,16 @@
     --popover-foreground: 220 40% 15%;
 
     /* Couleurs principales du logo Hero National */
-    /* Rouge bordeaux du cercle */
     --primary: 355 65% 45%;
     --primary-foreground: 0 0% 98%;
     --primary-glow: 355 75% 55%;
 
-    /* Bleu marine du cercle */
     --secondary: 220 50% 20%;
     --secondary-foreground: 0 0% 98%;
 
     --muted: 220 14.3% 95.9%;
     --muted-foreground: 220 8.9% 46.1%;
 
-    /* Or/Doré de l'étoile */
     --accent: 45 95% 60%;
     --accent-foreground: 220 40% 15%;
 
@@ -39,7 +36,6 @@
     --input: 220 13% 91%;
     --ring: 355 65% 45%;
 
-    /* Tokens de design personnalisés Hero National */
     --hero-gradient: linear-gradient(135deg, hsl(355 65% 45%), hsl(220 50% 20%));
     --accent-gradient: linear-gradient(135deg, hsl(45 95% 60%), hsl(45 85% 50%));
     --gold-gradient: linear-gradient(180deg, hsl(45 100% 70%), hsl(40 90% 50%), hsl(35 85% 45%));
@@ -51,7 +47,6 @@
 
     --radius: 0.5rem;
 
-    /* Couleurs Hero National additionnelles */
     --hero-burgundy: 355 65% 45%;
     --hero-navy: 220 50% 20%;
     --hero-gold: 45 95% 60%;
@@ -71,32 +66,23 @@
   .dark {
     --background: 220 50% 8%;
     --foreground: 0 0% 98%;
-
     --card: 220 45% 12%;
     --card-foreground: 0 0% 98%;
-
     --popover: 220 45% 12%;
     --popover-foreground: 0 0% 98%;
-
     --primary: 355 70% 55%;
     --primary-foreground: 0 0% 98%;
-
     --secondary: 220 45% 25%;
     --secondary-foreground: 0 0% 98%;
-
     --muted: 220 40% 18%;
     --muted-foreground: 220 15% 65%;
-
     --accent: 45 95% 65%;
     --accent-foreground: 220 50% 8%;
-
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 98%;
-
     --border: 220 40% 20%;
     --input: 220 40% 20%;
     --ring: 355 70% 55%;
-
     --sidebar-background: 220 50% 10%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 355 70% 55%;
@@ -127,31 +113,31 @@
   .hero-gradient {
     background: var(--hero-gradient);
   }
-  
+
   .gold-gradient {
     background: var(--gold-gradient);
   }
-  
+
   .text-hero-gold {
     color: hsl(var(--hero-gold));
   }
-  
+
   .text-hero-burgundy {
     color: hsl(var(--hero-burgundy));
   }
-  
+
   .text-hero-navy {
     color: hsl(var(--hero-navy));
   }
-  
+
   .bg-hero-gold {
     background-color: hsl(var(--hero-gold));
   }
-  
+
   .bg-hero-burgundy {
     background-color: hsl(var(--hero-burgundy));
   }
-  
+
   .bg-hero-navy {
     background-color: hsl(var(--hero-navy));
   }
