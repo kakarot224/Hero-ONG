@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Users, Target, Globe } from "lucide-react";
 import heroImage from "@/assets/hero-cleaning.jpg";
@@ -8,10 +9,14 @@ const Hero = () => {
   return (
     <section id="accueil" className="pt-16 min-h-screen flex items-center relative overflow-hidden">
       {/* Background with overlay */}
-      <div
-        className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage.src})` }}
-      >
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={heroImage}
+          alt="Nettoyage de Conakry — Projet Won Fintin"
+          fill
+          priority
+          className="object-cover object-center"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent"></div>
       </div>
 

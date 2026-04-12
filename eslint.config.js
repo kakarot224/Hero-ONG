@@ -17,6 +17,8 @@ const eslintConfig = [
         "warn",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
+      // Le français utilise beaucoup d'apostrophes — pas besoin d'escaper
+      "react/no-unescaped-entities": "off",
     },
   },
 ];

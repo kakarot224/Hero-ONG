@@ -1,12 +1,13 @@
-# Hero National - ONG Guinée
+# Hero National — ONG Guinée
 
-Site web de l'ONG Hero National, projet M'won Fintin — pour faire de Conakry la capitale la plus propre d'Afrique de l'Ouest.
+Site web de l'ONG Hero National, projet Won Fintin — pour faire de Conakry la capitale la plus propre d'Afrique de l'Ouest.
 
 ## Stack technique
 
-- **Vite** + **React 18** + **TypeScript**
-- **Tailwind CSS** + **shadcn/ui**
-- **React Router** + **React Hook Form** + **Zod**
+- **Next.js 15** (App Router, SSG) + **React 18** + **TypeScript**
+- **Tailwind CSS 3** + **shadcn/ui** + **Radix UI**
+- **React Hook Form** + **Zod** (formulaire de contact)
+- **pnpm** comme gestionnaire de paquets
 
 ## Démarrage rapide
 
@@ -31,39 +32,50 @@ pnpm install
 pnpm dev
 ```
 
+Le site est disponible sur [http://localhost:3000](http://localhost:3000).
+
 ### Scripts disponibles
 
 | Commande | Description |
 |----------|-------------|
-| `pnpm dev` | Serveur de développement (port 6060) |
+| `pnpm dev` | Serveur de développement (port 3000) |
 | `pnpm build` | Build de production |
-| `pnpm preview` | Prévisualiser le build de production |
+| `pnpm start` | Démarrer le serveur de production |
 | `pnpm lint` | Linter ESLint |
 
 ## Structure du projet
 
 ```
 src/
-├── assets/          # Images et ressources statiques
+├── app/
+│   ├── layout.tsx       # Layout racine (SEO, Header, Footer)
+│   ├── page.tsx         # Page d'accueil (one-page)
+│   ├── providers.tsx    # Providers client (Tooltip, Toaster)
+│   ├── not-found.tsx    # Page 404
+│   └── globals.css      # Design system Hero National
+├── assets/              # Images et ressources statiques
 ├── components/
-│   ├── ui/          # Composants shadcn/ui
+│   ├── ui/              # Composants shadcn/ui
 │   ├── Header.tsx
 │   ├── Hero.tsx
 │   ├── About.tsx
 │   ├── Actions.tsx
 │   ├── Team.tsx
-│   ├── HomePage.tsx  # Témoignages
+│   ├── HomePage.tsx     # Témoignages
 │   ├── Support.tsx
 │   ├── Contact.tsx
 │   └── Footer.tsx
-├── pages/
-│   ├── Index.tsx    # Page principale (one-page)
-│   └── NotFound.tsx
 ├── hooks/
-├── lib/
-└── index.css        # Design system Hero National
+└── lib/
 ```
 
 ## Déploiement
 
-Ouvrir [Lovable](https://lovable.dev/projects/54ae43ee-0cff-496e-b92e-2cec8522b7ae) et cliquer sur **Share → Publish**.
+Le projet est configuré pour être déployé sur **Vercel** (à configurer).
+
+```sh
+# Build de production
+pnpm build
+```
+
+Les pages sont générées en statique (SSG) par défaut.
