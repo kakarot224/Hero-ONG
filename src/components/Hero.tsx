@@ -80,8 +80,8 @@ const Hero = () => {
           priority
           className="object-cover object-center scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/92 via-primary/75 to-primary/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       </div>
 
       {/* Decorative blobs */}
@@ -102,7 +102,7 @@ const Hero = () => {
           {/* Headline */}
           <h1
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.08] tracking-tight animate-fadeInUp delay-100"
-            style={{ textShadow: "0 2px 20px rgba(0,0,0,0.4)" }}
+            style={{ textShadow: "0 2px 20px rgba(0,0,0,0.7)" }}
           >
             Faire de Conakry la{" "}
             <span
@@ -114,7 +114,7 @@ const Hero = () => {
             d&apos;Afrique de l&apos;Ouest
           </h1>
 
-          <p className="text-lg md:text-xl text-white/85 mb-10 max-w-2xl leading-relaxed animate-fadeInUp delay-200">
+          <p className="text-lg md:text-xl text-white font-semibold mb-10 max-w-2xl leading-relaxed animate-fadeInUp delay-200" style={{ textShadow: "0 1px 12px rgba(0,0,0,0.6)" }}>
             Hero National est engagée dans l&apos;amélioration des conditions de vie en Guinée,
             avec un accent sur l&apos;assainissement urbain et le développement communautaire.
           </p>
