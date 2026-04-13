@@ -65,10 +65,24 @@ export default function Contact() {
 
         {/* ── Badge + Titre ── */}
         <div className={`text-center mb-14 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <span className="section-badge"><MessageSquare className="w-3.5 h-3.5" />Parlons-nous</span>
+
+          {/* Badge custom */}
+          <div className="inline-flex items-center gap-2 mb-5">
+            <div className="w-8 h-8 rounded-xl bg-hero-gradient flex items-center justify-center shadow-sm">
+              <MessageSquare className="w-4 h-4 text-white" />
+            </div>
+            <span className="text-sm font-bold text-primary uppercase tracking-widest">
+              Parlons-nous
+            </span>
+            <div className="w-8 h-8 rounded-xl bg-hero-gradient flex items-center justify-center shadow-sm">
+              <MessageSquare className="w-4 h-4 text-white" />
+            </div>
+          </div>
+
           <h2 className="section-title">Contactez-Nous</h2>
+
           <p className="section-subtitle max-w-xl mx-auto">
-            Une question, une idée ou l'envie de nous rejoindre&nbsp;?<br />
+            Une question, une idée ou l&apos;envie de nous rejoindre&nbsp;?<br />
             Écrivez-nous — nous répondons sous 24h.
           </p>
         </div>
