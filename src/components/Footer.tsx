@@ -148,6 +148,25 @@ const Footer = () => {
             ))}
           </div>
         </div>
+
+        {/* Signature développeur */}
+        <div className="border-t border-white/5 mt-5 pt-5 flex flex-col sm:flex-row items-center justify-center gap-2 text-xs text-secondary-foreground/35">
+          <span>Développé par</span>
+          <span className="font-semibold text-secondary-foreground/55 tracking-wide">BamboryTech</span>
+          <span className="hidden sm:inline">·</span>
+          <a href="mailto:sowtyga224@gmail.com" className="hover:text-white transition-colors duration-200">
+            sowtyga224@gmail.com
+          </a>
+          <span>·</span>
+          <a
+            href="https://wa.me/224624386545"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors duration-200"
+          >
+            WhatsApp +224 624 38 65 45
+          </a>
+        </div>
       </div>
     </footer>
   );
