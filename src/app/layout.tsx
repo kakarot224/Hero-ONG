@@ -5,6 +5,10 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  icons: {
+    icon: "/logo.jpg",
+    apple: "/logo.jpg",
+  },
   title: "Hero National — ONG Guinée | Projet Won Fintin",
   description:
     "Hero National est une ONG guinéenne dédiée à faire de Conakry la capitale la plus propre d'Afrique de l'Ouest à travers le projet Won Fintin.",
