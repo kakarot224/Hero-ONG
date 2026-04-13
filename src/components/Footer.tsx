@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { MapPin, Phone, Mail, Facebook, ArrowUpRight } from "lucide-react";
 import { FaTiktok } from "react-icons/fa";
 import logo from "@/assets/logo.jpg";
@@ -37,7 +38,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <a href="/#accueil" className="flex items-center gap-3 mb-4 group w-fit">
+            <Link href="/#accueil" className="flex items-center gap-3 mb-4 group w-fit">
               <div className="overflow-hidden rounded-full ring-2 ring-white/20 group-hover:ring-accent/50 transition-all duration-300">
                 <Image src={logo} alt="Hero National Logo" width={44} height={44} className="object-contain rounded-full" />
               </div>
@@ -45,7 +46,7 @@ const Footer = () => {
                 <div className="font-bold text-white">Hero National</div>
                 <div className="text-secondary-foreground/60 text-xs tracking-wider uppercase">ONG Guinée</div>
               </div>
-            </a>
+            </Link>
             <p className="text-secondary-foreground/65 text-sm leading-relaxed mb-5">
               Organisation non gouvernementale dédiée à faire de Conakry la capitale
               la plus propre d&apos;Afrique de l&apos;Ouest à travers le projet Won Fintin.

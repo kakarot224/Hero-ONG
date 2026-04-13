@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Heart } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -56,7 +57,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
 
           {/* Logo */}
-          <a href="/#accueil" className="flex items-center gap-3 group">
+          <Link href="/#accueil" className="flex items-center gap-3 group">
             <div className="relative overflow-hidden rounded-full transition-transform duration-300 group-hover:scale-105 group-hover:shadow-glow">
               <Image
                 src={logo}
@@ -70,7 +71,7 @@ const Header = () => {
               <div className="font-bold text-base text-primary leading-none">Hero National</div>
               <div className="text-[10px] text-muted-foreground tracking-widest uppercase mt-0.5">ONG Guinée</div>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
