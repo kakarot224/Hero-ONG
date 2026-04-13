@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Users, Target, Globe, ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-cleaning.jpg";
 import { useEffect, useRef, useState } from "react";
+import InscriptionModal from "@/components/modals/InscriptionModal";
 
 function useCountUp(target: number, duration = 1800, active = false) {
   const [count, setCount] = useState(0);
@@ -65,8 +66,11 @@ function AnimatedStats() {
 }
 
 const Hero = () => {
+  const [inscriptionOpen, setInscriptionOpen] = useState(false);
+
   return (
     <section id="accueil" className="pt-16 min-h-screen flex items-center relative overflow-hidden">
+      <InscriptionModal open={inscriptionOpen} onClose={() => setInscriptionOpen(false)} />
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -124,7 +128,7 @@ const Hero = () => {
               variant="hero"
               size="lg"
               className="gap-2 shadow-hero hover:shadow-glow transition-all duration-300 hover:-translate-y-0.5"
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => setInscriptionOpen(true)}
             >
               <Users className="w-5 h-5" />
               Rejoindre le mouvement
