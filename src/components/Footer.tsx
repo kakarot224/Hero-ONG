@@ -16,7 +16,7 @@ const Footer = () => {
     { name: "Faire un don",       href: "#soutenir" },
     { name: "Devenir bénévole",   href: "#contact"  },
     { name: "Partenariat",        href: "#contact"  },
-    { name: "Nos rapports",       href: "#"         },
+    { name: "Nos rapports",       href: "/rapports-financiers" },
   ];
 
   const socialMedia = [
@@ -128,16 +128,20 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="border-t border-white/10 mt-12 pt-7 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-secondary-foreground/50 text-sm text-center md:text-left">
-            © 2024 Hero National. Tous droits réservés. | ONG enregistrée en République de Guinée
+            © {new Date().getFullYear()} Hero National. Tous droits réservés. | ONG enregistrée en République de Guinée
           </p>
           <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm">
-            {["Politique de confidentialité", "Mentions légales", "Rapports financiers"].map((link) => (
+            {[
+              { name: "Politique de confidentialité", href: "/politique-de-confidentialite" },
+              { name: "Mentions légales",             href: "/mentions-legales"             },
+              { name: "Rapports financiers",          href: "/rapports-financiers"          },
+            ].map((link) => (
               <a
-                key={link}
-                href="#"
+                key={link.name}
+                href={link.href}
                 className="text-secondary-foreground/50 hover:text-white transition-colors duration-200 flex items-center gap-1 group"
               >
-                {link}
+                {link.name}
                 <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
             ))}

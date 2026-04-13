@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Heart, Globe } from "lucide-react";
+import { Menu, X, Heart } from "lucide-react";
 import { useState, useEffect } from "react";
 import logo from "@/assets/logo.jpg";
 
@@ -96,10 +96,9 @@ const Header = () => {
 
           {/* Action Buttons */}
           <div className="hidden md:flex items-center gap-2">
-            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground gap-1.5">
-              <Globe className="w-3.5 h-3.5" />
-              <span className="text-xs font-medium">FR</span>
-            </Button>
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-md border border-border text-muted-foreground select-none">
+              FR
+            </span>
             <Button
               variant="donate"
               size="sm"
@@ -152,9 +151,10 @@ const Header = () => {
               </a>
             ))}
             <div className="pt-3 px-1 space-y-2 border-t border-border/50 mt-2">
-              <Button variant="ghost" size="sm" className="w-full justify-start gap-2 text-muted-foreground">
-                <Globe className="w-4 h-4" />Français
-              </Button>
+              <div className="flex items-center gap-2 px-2 py-1.5 text-sm text-muted-foreground">
+                <span className="text-xs font-semibold px-2 py-0.5 rounded border border-border">FR</span>
+                Français
+              </div>
               <Button
                 variant="donate"
                 size="sm"
