@@ -124,10 +124,17 @@ const Team = () => {
           ref={headerRef}
           className={`text-center mb-16 transition-all duration-700 ${headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <span className="section-badge">
-            <Users className="w-3.5 h-3.5" />
-            Les acteurs du changement
-          </span>
+          <div className="inline-flex items-center gap-2 mb-5">
+            <div className="w-8 h-8 rounded-xl bg-hero-gradient flex items-center justify-center shadow-sm">
+              <Users className="w-4 h-4 text-white" />
+            </div>
+            <span className="text-sm font-bold text-primary uppercase tracking-widest">
+              Les acteurs du changement
+            </span>
+            <div className="w-8 h-8 rounded-xl bg-hero-gradient flex items-center justify-center shadow-sm">
+              <Users className="w-4 h-4 text-white" />
+            </div>
+          </div>
           <h2 className="section-title">Notre Équipe</h2>
           <p className="section-subtitle">
             Nous sommes une équipe passionnée et expérimentée, unie par la vision de transformer

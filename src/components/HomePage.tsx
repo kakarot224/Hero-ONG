@@ -86,10 +86,17 @@ const HomePage = () => {
           ref={ref}
           className={`text-center mb-14 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <span className="section-badge">
-            <Quote className="w-3.5 h-3.5" />
-            Ils témoignent
-          </span>
+          <div className="inline-flex items-center gap-2 mb-5">
+            <div className="w-8 h-8 rounded-xl bg-hero-gradient flex items-center justify-center shadow-sm">
+              <Quote className="w-4 h-4 text-white" />
+            </div>
+            <span className="text-sm font-bold text-primary uppercase tracking-widest">
+              Ils témoignent
+            </span>
+            <div className="w-8 h-8 rounded-xl bg-hero-gradient flex items-center justify-center shadow-sm">
+              <Quote className="w-4 h-4 text-white" />
+            </div>
+          </div>
           <h2 className="section-title">Nos Témoignages</h2>
           <p className="section-subtitle">
             Découvrez ce que nos volontaires et bénéficiaires disent de notre mission.
