@@ -7,7 +7,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { Smartphone, CheckCircle2, AlertCircle, Copy } from "lucide-react";
+import { Smartphone, CheckCircle2, AlertCircle, Copy, PhoneCall } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
@@ -74,6 +74,25 @@ export default function OrangeMoneyModal({ open, onClose }: OrangeMoneyModalProp
           <Button variant="ghost" size="icon" onClick={copyNumber} title="Copier le numéro">
             <Copy className="w-4 h-4 text-orange-500" />
           </Button>
+        </div>
+
+        {/* Bouton raccourci USSD */}
+        <div className="bg-orange-500 rounded-xl p-4 flex flex-col items-center gap-2 mb-2">
+          <p className="text-white text-xs font-semibold uppercase tracking-wider">Raccourci rapide</p>
+          <p className="text-white/90 font-mono text-lg font-bold tracking-widest">*144*1*1*622309909#</p>
+          <a
+            href="tel:*144*1*1*622309909%23"
+            className="w-full"
+            onClick={() => toast.success("Ouverture du composeur…", { description: "Entrez votre montant et validez avec votre PIN." })}
+          >
+            <Button className="w-full bg-white text-orange-600 hover:bg-orange-50 font-bold gap-2 shadow-md">
+              <PhoneCall className="w-4 h-4" />
+              Appuyer pour composer
+            </Button>
+          </a>
+          <p className="text-white/70 text-xs text-center">
+            Votre téléphone va s&apos;ouvrir avec le code pré-rempli. Entrez votre montant et suivez les étapes.
+          </p>
         </div>
 
         {/* Étapes */}
