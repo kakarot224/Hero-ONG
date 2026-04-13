@@ -12,11 +12,11 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState("accueil");
 
   const navigation = [
-    { name: "Accueil", href: "#accueil", id: "accueil" },
-    { name: "À propos", href: "#apropos", id: "apropos" },
-    { name: "Nos Actions", href: "#actions", id: "actions" },
-    { name: "Équipe", href: "#equipe", id: "equipe" },
-    { name: "Contact", href: "#contact", id: "contact" },
+    { name: "Accueil", href: "/#accueil", id: "accueil" },
+    { name: "À propos", href: "/#apropos", id: "apropos" },
+    { name: "Nos Actions", href: "/#actions", id: "actions" },
+    { name: "Équipe", href: "/#equipe", id: "equipe" },
+    { name: "Contact", href: "/#contact", id: "contact" },
   ];
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
 
           {/* Logo */}
-          <a href="#accueil" className="flex items-center gap-3 group">
+          <a href="/#accueil" className="flex items-center gap-3 group">
             <div className="relative overflow-hidden rounded-full transition-transform duration-300 group-hover:scale-105 group-hover:shadow-glow">
               <Image
                 src={logo}

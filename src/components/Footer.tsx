@@ -5,17 +5,17 @@ import logo from "@/assets/logo.jpg";
 
 const Footer = () => {
   const quickLinks = [
-    { name: "Accueil",     href: "#accueil"  },
-    { name: "À propos",    href: "#apropos"  },
-    { name: "Nos Actions", href: "#actions"  },
-    { name: "Équipe",      href: "#equipe"   },
-    { name: "Contact",     href: "#contact"  },
+    { name: "Accueil",     href: "/#accueil"  },
+    { name: "À propos",    href: "/#apropos"  },
+    { name: "Nos Actions", href: "/#actions"  },
+    { name: "Équipe",      href: "/#equipe"   },
+    { name: "Contact",     href: "/#contact"  },
   ];
 
   const supportLinks = [
-    { name: "Faire un don",       href: "#soutenir" },
-    { name: "Devenir bénévole",   href: "#contact"  },
-    { name: "Partenariat",        href: "#contact"  },
+    { name: "Faire un don",       href: "/#soutenir" },
+    { name: "Devenir bénévole",   href: "/#contact"  },
+    { name: "Partenariat",        href: "/#contact"  },
     { name: "Nos rapports",       href: "/rapports-financiers" },
   ];
 
@@ -37,7 +37,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <a href="#accueil" className="flex items-center gap-3 mb-4 group w-fit">
+            <a href="/#accueil" className="flex items-center gap-3 mb-4 group w-fit">
               <div className="overflow-hidden rounded-full ring-2 ring-white/20 group-hover:ring-accent/50 transition-all duration-300">
                 <Image src={logo} alt="Hero National Logo" width={44} height={44} className="object-contain rounded-full" />
               </div>
