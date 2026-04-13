@@ -1,73 +1,64 @@
 import Image from "next/image";
-import { MapPin, Phone, Mail, Facebook } from "lucide-react";
+import { MapPin, Phone, Mail, Facebook, ArrowUpRight } from "lucide-react";
 import { FaTiktok } from "react-icons/fa";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo.jpg";
 
 const Footer = () => {
   const quickLinks = [
-    { name: "Accueil", href: "#accueil" },
-    { name: "À propos", href: "#apropos" },
-    { name: "Nos Actions", href: "#actions" },
-    { name: "Équipe", href: "#equipe" },
-    { name: "Contact", href: "#contact" },
+    { name: "Accueil",     href: "#accueil"  },
+    { name: "À propos",    href: "#apropos"  },
+    { name: "Nos Actions", href: "#actions"  },
+    { name: "Équipe",      href: "#equipe"   },
+    { name: "Contact",     href: "#contact"  },
   ];
 
   const supportLinks = [
-    { name: "Faire un don", href: "#soutenir" },
-    { name: "Devenir bénévole", href: "#" },
-    { name: "Partenariat", href: "#" },
-    { name: "Nos rapports", href: "#" },
+    { name: "Faire un don",       href: "#soutenir" },
+    { name: "Devenir bénévole",   href: "#contact"  },
+    { name: "Partenariat",        href: "#contact"  },
+    { name: "Nos rapports",       href: "#"         },
   ];
 
-
   const socialMedia = [
-    {
-      icon: Facebook,
-      url: "https://www.facebook.com/share/16EGX97ugH/",
-      color: "hover:text-blue-500",
-    },
-    {
-      icon: FaTiktok,
-      url: "https://www.tiktok.com/@heronational",
-      color: "hover:text-pink-500",
-    },
+    { icon: Facebook, url: "https://www.facebook.com/share/16EGX97ugH/", label: "Facebook", bg: "bg-blue-600 hover:bg-blue-500" },
+    { icon: FaTiktok, url: "https://www.tiktok.com/@heronational",         label: "TikTok",   bg: "bg-zinc-900 hover:bg-zinc-700" },
   ];
 
   return (
-    <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Logo et description */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center space-x-3">
-              <Image
-                src={logo}
-                alt="Hero National Logo"
-                width={48}
-                height={48}
-                className="object-contain rounded-full"
-              />
-              <div>
-                <div className="font-semibold">Hero National</div>
-                <div className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200 text-sm">
-                  ONG Guinée
-                </div>
-              </div>
-            </div>
-            <p className="text-primary-foreground/80 text-sm leading-relaxed mb-6 mt-4">
-              Organisation non gouvernementale dédiée à faire de Conakry la capitale
-              la plus propre d'Afrique de l'Ouest à travers le projet M'won Fintin.
-            </p>
+    <footer className="relative bg-secondary text-secondary-foreground overflow-hidden">
+      {/* Top gradient line */}
+      <div className="h-1 w-full bg-hero-gradient" />
 
-          
-            <div className="flex space-x-4">
-              {socialMedia.map((social, index) => (
+      {/* Decorative blobs */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/3 rounded-full translate-y-1/2 -translate-x-1/4 blur-2xl" />
+
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* Brand */}
+          <div className="lg:col-span-1">
+            <a href="#accueil" className="flex items-center gap-3 mb-4 group w-fit">
+              <div className="overflow-hidden rounded-full ring-2 ring-white/20 group-hover:ring-accent/50 transition-all duration-300">
+                <Image src={logo} alt="Hero National Logo" width={44} height={44} className="object-contain rounded-full" />
+              </div>
+              <div>
+                <div className="font-bold text-white">Hero National</div>
+                <div className="text-secondary-foreground/60 text-xs tracking-wider uppercase">ONG Guinée</div>
+              </div>
+            </a>
+            <p className="text-secondary-foreground/65 text-sm leading-relaxed mb-5">
+              Organisation non gouvernementale dédiée à faire de Conakry la capitale
+              la plus propre d&apos;Afrique de l&apos;Ouest à travers le projet Won Fintin.
+            </p>
+            <div className="flex gap-2.5">
+              {socialMedia.map((social) => (
                 <a
-                  key={index}
+                  key={social.label}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-8 h-8 bg-primary-foreground/10 rounded-lg flex items-center justify-center text-primary-foreground/80 ${social.color} transition-colors duration-300`}
+                  aria-label={social.label}
+                  className={`w-9 h-9 ${social.bg} rounded-xl flex items-center justify-center text-white transition-all duration-300 hover:scale-110 hover:shadow-lg`}
                 >
                   <social.icon className="w-4 h-4" />
                 </a>
@@ -77,14 +68,15 @@ const Footer = () => {
 
           {/* Navigation */}
           <div>
-            <h3 className="font-semibold mb-4">Navigation</h3>
-            <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
+            <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-5">Navigation</h3>
+            <ul className="space-y-2.5">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200 text-sm"
+                    className="text-secondary-foreground/65 hover:text-white transition-colors duration-200 text-sm flex items-center gap-1.5 group"
                   >
+                    <span className="w-0 group-hover:w-3 h-0.5 bg-accent rounded-full transition-all duration-300 flex-shrink-0" />
                     {link.name}
                   </a>
                 </li>
@@ -92,16 +84,17 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Nous Soutenir */}
+          {/* Support */}
           <div>
-            <h3 className="font-semibold mb-4">Nous Soutenir</h3>
-            <ul className="space-y-3">
-              {supportLinks.map((link, index) => (
-                <li key={index}>
+            <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-5">Nous Soutenir</h3>
+            <ul className="space-y-2.5">
+              {supportLinks.map((link) => (
+                <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200 text-sm"
+                    className="text-secondary-foreground/65 hover:text-white transition-colors duration-200 text-sm flex items-center gap-1.5 group"
                   >
+                    <span className="w-0 group-hover:w-3 h-0.5 bg-accent rounded-full transition-all duration-300 flex-shrink-0" />
                     {link.name}
                   </a>
                 </li>
@@ -111,57 +104,43 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold mb-4">Contact</h3>
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-4 h-4 text-primary-foreground/60 mt-0.5 flex-shrink-0" />
-                <div className="text-primary-foreground/80 text-sm">
+            <h3 className="text-sm font-semibold text-white uppercase tracking-widest mb-5">Contact</h3>
+            <div className="space-y-3.5">
+              <div className="flex items-start gap-3 group">
+                <MapPin className="w-4 h-4 text-secondary-foreground/50 mt-0.5 flex-shrink-0 group-hover:text-accent transition-colors" />
+                <div className="text-secondary-foreground/65 text-sm">
                   <div>Quartier Kaloum</div>
                   <div>Conakry, Guinée</div>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="w-4 h-4 text-primary-foreground/60 flex-shrink-0" />
-                <span className="text-primary-foreground/80 text-sm">
-                  +224 622 30 99 09
-                </span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="w-4 h-4 text-primary-foreground/60 flex-shrink-0" />
-                <span className="text-primary-foreground/80 text-sm">
-                  heronational224@gmail.com
-                </span>
-              </div>
+              <a href="tel:+224622309909" className="flex items-center gap-3 group">
+                <Phone className="w-4 h-4 text-secondary-foreground/50 flex-shrink-0 group-hover:text-accent transition-colors" />
+                <span className="text-secondary-foreground/65 hover:text-white transition-colors text-sm">+224 622 30 99 09</span>
+              </a>
+              <a href="mailto:heronational224@gmail.com" className="flex items-center gap-3 group">
+                <Mail className="w-4 h-4 text-secondary-foreground/50 flex-shrink-0 group-hover:text-accent transition-colors" />
+                <span className="text-secondary-foreground/65 hover:text-white transition-colors text-sm break-all">heronational224@gmail.com</span>
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Bas du footer */}
-        <div className="border-t border-primary-foreground/20 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-primary-foreground/60 text-sm text-center md:text-left">
-              © 2024 Hero National. Tous droits réservés. | ONG enregistrée en République de Guinée
-            </div>
-            <div className="flex items-center space-x-6 text-sm">
+        {/* Bottom bar */}
+        <div className="border-t border-white/10 mt-12 pt-7 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-secondary-foreground/50 text-sm text-center md:text-left">
+            © 2024 Hero National. Tous droits réservés. | ONG enregistrée en République de Guinée
+          </p>
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm">
+            {["Politique de confidentialité", "Mentions légales", "Rapports financiers"].map((link) => (
               <a
+                key={link}
                 href="#"
-                className="text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                className="text-secondary-foreground/50 hover:text-white transition-colors duration-200 flex items-center gap-1 group"
               >
-                Politique de confidentialité
+                {link}
+                <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
-              <a
-                href="#"
-                className="text-primary-foreground/60 hover:text-primary-foreground transition-colors"
-              >
-                Mentions légales
-              </a>
-              <a
-                href="#"
-                className="text-primary-foreground/60 hover:text-primary-foreground transition-colors"
-              >
-                Rapports financiers
-              </a>
-            </div>
+            ))}
           </div>
         </div>
       </div>
