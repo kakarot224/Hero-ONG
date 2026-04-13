@@ -122,11 +122,6 @@ src/
 
 ## Déploiement
 
-Le projet est configuré pour être déployé sur **Vercel** (à configurer).
+projet deployer sur vercel 
 
-```sh
-# Build de production
-pnpm build
-```
-
-Les pages sont générées en statique (SSG) par défaut.
+https://hero-ong-ze2a.vercel.app/
