@@ -11,7 +11,7 @@ import { Mail, Phone, ChevronDown, ChevronUp, Users } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 import monequipe from "@/assets/4.jpg";
 
-import doussou    from "@/assets/Doussou Sylla.jpg";
+import doussouba  from "@/assets/Doussouba Sylla.jpg";
 import robert     from "@/assets/Robert Bangoura.jpg";
 import billy      from "@/assets/Billy Nakouman kanté.jpg";
 import fatoumata  from "@/assets/Fatoumata Kallo.jpg";
@@ -37,13 +37,13 @@ interface ActiveMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Doussou Sylla",
+    name: "Doussouba Sylla",
     role: "Présidente",
     description: "Leader expérimentée en développement communautaire.",
     expertise: ["Leadership", "Environnement"],
     email: "fabourama24@gmail.com",
     phone: "+224623618821",
-    image: doussou,
+    image: doussouba,
   },
   {
     name: "Robert Bangoura",
